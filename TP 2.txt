@@ -1,0 +1,43 @@
+Para entregar el TP N°2 deberán hacerlo a través del formulario puesto en esta tarea, indicando:
+
+su nombre completo
+correo
+división
+nombre del grupo que entrega
+nombre de los integrantes del grupo.
+Además deberán pegar el link al circuito arduino en cuestión que cumpla con la consigna del tp.
+El circuito deberá cumplir con las reglas de estilo de la cursada, respetando los temas propuestos, siendo construido íntegro por ustedes en base a las imágenes de cada enunciado.
+
+NOTA:
+Cualquier consulta sobre enunciados, hacerlas a través de Slack.
+El TP N°2 es de carácter grupal y Obligatorio para estar en condición de poder promocionar la materia.
+Una persona por grupo completara el formulario para entregar el circuito, pero todas quienes integren el grupo deberán marcar la tarea como entregada.
+
+
+IMPORTANTE:
+Cada grupo deberá elegir uno de los 6 temas propuestos en los documentos listados teniendo en cuenta lo siguiente:
+Se permitirá un máximo de 3 y solamente 3 grupos por tema (Esto significa que si eligen el tema X, y en X ya hay 3 grupos anotados, deberán elegir otro siempre y cuando no se sobrepasen del limite máximo permitido) por ejemplo:
+- Tema Alpha fue elegido por Grupo A, Grupo B
+- Tema Gamma fue elegido por Grupo C, Grupo D, Grupo E
+- Tema Delta fue elegido por Grupo F, Grupo G
+
+-- Si mi grupo es Grupo H, solo podre anotarme en Tema Alpha o en Tema Delta (Ya que ambos no llegan a tener un máximo de 3 grupos quienes lo eligieron).
+
+
+El código deberá cumplir con los ítems propuestos en su enunciado, haciendo hincapié en la sección 'Importante' que cada enunciado presenta.
+Con intención de llevar un control entre ustedes y así poder saber el cupo disponible de cada tema, en esta tarea UN INTEGRANTE por grupo deberá escribir en un comentario los siguientes datos al momento de elegir un tema:
+- Nombre del Grupo.
+- Nombre de integrantes.
+- Tema Seleccionado.
+
+
+Deberán crear un repositorio en GitHub para subir el código arduino el cual tendrá que respetar el siguiente formato:
+-- https://github.com/TuNombreDeUsuario/SPD2021_TP2/
+Una vez hecho esto, en el formulario elegir la segunda o tercer opción para declarar el repositorio por primera vez (por mas que este vacío). Este paso será para que quede en nuestros registros los grupos con su debido repo que entregarán el tp2 cuando corresponda.
+
+
+Cuando sea momento de entregarlo, completar el form nuevamente seleccionando previamente la opcion 'SI', para acceder a otra sección del mismo y así poder completar la entrega.
+
+Por ultimo pero no menos importante, La entrega final, además de todo lo dicho, consistirá en una exposición grupal y oral en el cual explicarán el funcionamiento del circuito en cuestión.
+
+Exitos a tod@s!
