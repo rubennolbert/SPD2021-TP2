@@ -14,7 +14,8 @@ char cadena[25] = "centrifuga";
 int valorA0;
 char letra [] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
 int vidas = 3;
-
+int caracCorrecto=0; 
+int indiceLetra=0;
 
 void setup()
 {
@@ -23,17 +24,21 @@ void setup()
  	lcd.begin(16, 2);
   	lcd.setCursor(3, 1);
 	lcd.print("__________");
+ 	lcd.setCursor(3, 0);	
+  	lcd.print(letra[indiceLetra]);
+ 	setear();
+  
 }
 
 int botonAntes = 0;
 int iUp=0;
 int iDown = 0;
-int indiceLetra=0;
+
 
 
 void loop()
 {
- 	setear();
+ 	
     
   	int botonAhora = leerBoton();
   
@@ -42,18 +47,28 @@ void loop()
              switch(botonAhora)
              {
                  case 1: //subir	
-               		subirLetra();    
+               		subirLetra();
+                     lcd.setCursor(3, 0);		
+                     lcd.print(letra[indiceLetra]);
                  break;
                  case 2:  //probar
                		buttonProbar(cadena,letra[indiceLetra]);
+               		setear();
                  break;
                  case 3:  //bajar
-               		bajarLetra();	
+               		bajarLetra();
+               		lcd.setCursor(3, 0);		
+               		lcd.print(letra[indiceLetra]);
                  break;
              }       
     }
   
- 	botonAntes = botonAhora;  
+  	botonAntes = botonAhora;
+  
+  		Perder();  
+   	 	
+  		Ganar();
+   
   
 }
 
@@ -90,14 +105,10 @@ void subirLetra(){
 
 void setear(){
 
-	
-    lcd.setCursor(3, 0);
-    lcd.print(letra[indiceLetra]);
-    lcd.setCursor(6, 0);
+	lcd.setCursor(6, 0);
 	lcd.print("Vidas: ");
-    lcd.setCursor(13, 0);
-    lcd.print(vidas);
-
+  	lcd.setCursor(13, 0);						
+  	lcd.print(vidas);    
 }
 
 //Funcion LeerBoton
@@ -127,62 +138,66 @@ int leerBoton()
 // 	resta una vida 
 
 void buttonProbar(char cadena[],int letra){
-  
+
  int indCaracter=0;
   if(String(cadena).indexOf(letra,0)==-1)
   {
-  	vidas--;
+  	vidas--; 
     
-    if(vidas==0){
-    lcd.clear();  
-    lcd.setCursor(4,1);
-    lcd.print("PERDISTE");  
-    }
-    
-    
-  
   }else{
         indCaracter = String(cadena).indexOf(letra,0);
         Serial.println("Se encontro el caracter");
         Serial.println(indCaracter);
     	lcd.setCursor((indCaracter+3),1);
-        lcd.print(cadena[indCaracter]); 
-    		  
+        lcd.print(cadena[indCaracter]);
+    	caracCorrecto++;
   }
        
 }
 
-
-
-// Deciende la letra para el usuario
-
-void bajarLetra(){
-	iDown --;
-    indiceLetra--;
-        
-  	if(indiceLetra==-1){
-          indiceLetra=25;
-            }
-
-}
-
-//Funcion subirLetra
-// Asciende la letra para el usuario
-
-void subirLetra(){
-	iUp ++;
-	indiceLetra++;
+void Perder(){
+  if(vidas==0){ 
     
-  	if(indiceLetra>=26){
-        indiceLetra=0;
-       }
-
+    lcd.setCursor(4,1);
+    lcd.print("PERDISTE");  
+    unsigned long millisAnterior=0;
+   	unsigned long millisActual = millis(); 
+  	if((millisActual - millisAnterior) >= 3000)
+  	{
+  		//delay(1500);
+        reiniciar();   
+    
+    millisAnterior = millisActual;
+  	}
+}
 }
 
-//Funcion Setear
-// Setea y muestra el display
+void Ganar(){
+  if(caracCorrecto==10){ 
+  	lcd.clear();  
+    lcd.setCursor(4,1);
+    lcd.print("Ganaste");  
+    unsigned long millisAnterior=0;
+   	unsigned long millisActual = millis(); 
+  	if((millisActual - millisAnterior) >= 3000)
+  	{
+  		//delay(1500);
+        reiniciar();  
+    	caracCorrecto=0;
+   		millisAnterior = millisActual;
+  	}
+}
+}
 
-void setear(){
+void reiniciar()
+{
+		vidas=3;
+  		setear();
+      	lcd.setCursor(3, 0);
+    	lcd.print(letra[0]);
+        lcd.setCursor(3, 1); 
+      	lcd.print("__________");
+}
 
 	
     lcd.setCursor(3, 0);
