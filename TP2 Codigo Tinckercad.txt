@@ -176,6 +176,9 @@ void buttonProbar(char cadena[],int letra){
        
 }
 
+//Funcion Perder
+//No recibe parametros, ni no devuelve ningun dato
+//Nos muestras en el display "PERDISTE" despues de perder todas las vidas.
 void Perder(){
   if(vidas==0){ 
     
@@ -193,6 +196,10 @@ void Perder(){
 }
 }
 
+//Funcion Ganar
+//Recibe una cadena de caracteres, devuelve vacio
+//si se encuentran los caracteres correctos no muestra en el 
+//display "GANASTE"
 void Ganar(char cadena[]){
   if(caracCorrecto==String(cadena).length()){ 
   	lcd.clear();  
@@ -213,6 +220,9 @@ void Ganar(char cadena[]){
 }
 }
 
+//Funcion Reiniciar
+//No recibe, ni devuelve parametros
+//Despues finalizar el juego reinicia el display
 void reiniciar()
 {
 		vidas=3;
@@ -224,6 +234,9 @@ void reiniciar()
   		indiceLetra=0;
 }
 
+//Funcion Ahorcado
+//No recibe, ni devuelve parametros
+//Muestra en el display emulacion de un ahorcado luego de perder
 void ahorcado()
 {
   
@@ -321,6 +334,10 @@ void ahorcado()
 
 }
 
+//Funcion AhorcadoInit
+//no recibe, ni devuelve parametros
+//Muestra en el display una emulacion de un ahorcado
+//que interactua cuando se pierden vidas
 void ahorcadoInit(){
   
     if(vidas == 3){
@@ -387,29 +404,11 @@ void ahorcadoInit(){
         B00000
       };
 
-     
-       
+      
         lcd.createChar(byte(3), bracitos);
        	lcd.setCursor(1, 1);
         lcd.write(byte(3));
       
     }
-    
-
-       
-       
-
-  
-  
- 
-
-
-  
-  
-  
-  
-  
-  
-  
 
  }
